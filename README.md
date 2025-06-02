@@ -15,7 +15,7 @@ A dynamic Android Live Wallpaper featuring Optimus Prime, built using Kotlin and
 * **Muted by Design:** The video plays without audio, as typical for live wallpapers.
 * **Optimal Scaling:** Video content is automatically scaled and cropped to perfectly fit your device's screen.
 
-## 🚀 Get Started
+## Get Started
 
 ### For Users (Apply the Live Wallpaper):
 
@@ -50,7 +50,7 @@ A dynamic Android Live Wallpaper featuring Optimus Prime, built using Kotlin and
     * Click the `Run` button (green play icon) in Android Studio to build and install the app.
     * Once installed, follow the "For Users" instructions above to apply the wallpaper.
 
-## 📁 Project Structure
+## Project Structure
 
 * `app/src/main/java/com/example/livewallpaper/VideoWallpaperService.kt`: The core Live Wallpaper service logic. Handles ExoPlayer setup for the wallpaper, drawing to the surface, and reacting to device state changes (screen lock, battery saver, visibility).
 * `app/src/main/java/com/example/livewallpaper/MainActivity.kt`: The primary activity. Provides the user interface to apply the wallpaper and includes a **new in-app video preview** using Jetpack Compose and ExoPlayer.
@@ -59,7 +59,7 @@ A dynamic Android Live Wallpaper featuring Optimus Prime, built using Kotlin and
 * `app/src/main/AndroidManifest.xml`: Declares the `WallpaperService` and `MainActivity`, along with necessary permissions.
 * `app/build.gradle`: Manages project dependencies, including ExoPlayer (Media3) and Jetpack Compose.
 
-## 💡 How It Works (Technical Details)
+## How It Works (Technical Details)
 
 The project leverages two main components:
 
@@ -76,7 +76,7 @@ The project leverages two main components:
 
 This architecture ensures both robust wallpaper functionality and a user-friendly application experience.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are warmly welcomed! If you have suggestions, find bugs, or want to add new features, please feel free to:
 
