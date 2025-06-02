@@ -21,7 +21,7 @@ A dynamic Android Live Wallpaper featuring Optimus Prime, built using Kotlin and
 
 1.  **Download the APK:**
     * Head over to the [Releases](https://github.com/dopetpoc126/Optimus-Prime-Live-Wallpaper/releases) section of this repository.
-    * Download the latest `app-release.apk` file.
+    * Download the latest `Primus.apk` file.
 2.  **Install the APK:**
     * Transfer the downloaded `.apk` file to your Android device.
     * You might need to enable "Install from Unknown Sources" in your device's security settings to install the app.
