@@ -1,7 +1,7 @@
 # Optimus Prime Live Wallpaper
 
-![App Screenshot/First Frame Preview](https://github.com/dopetpoc126/Optimus-Prime-Live-Wallpaper/blob/main/first_frame_preview.png?raw=true)
-*(Optional: Replace this with an actual screenshot or the `first_frame.png` if you wish, and make sure the path is correct or upload a dedicated preview image.)*
+![Wallpaper preview](https://github.com/dopetpoc126/Optimus-Prime-Live-Wallpaper/blob/main/first_frame_preview.png?raw=true)
+
 
 A dynamic Android Live Wallpaper featuring Optimus Prime, built using Kotlin and the latest ExoPlayer (Media3) library. This wallpaper intelligently manages video playback based on device state (visibility, screen lock, and battery saver mode) to provide a smooth, engaging experience while being mindful of system resources.
 
