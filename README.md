@@ -54,7 +54,7 @@ A dynamic Android Live Wallpaper featuring Optimus Prime, built using Kotlin and
 
 * `app/src/main/java/com/example/livewallpaper/VideoWallpaperService.kt`: The core Live Wallpaper service logic. Handles ExoPlayer setup for the wallpaper, drawing to the surface, and reacting to device state changes (screen lock, battery saver, visibility).
 * `app/src/main/java/com/example/livewallpaper/MainActivity.kt`: The primary activity. Provides the user interface to apply the wallpaper and includes a **new in-app video preview** using Jetpack Compose and ExoPlayer.
-* `app/src/main/res/raw/my_wallpaper_video.mp4`: **Your main video file.** Ensure this exact filename.
+* `app/src/main/res/raw/my_wallpaper_video.mp4`: **The main video file.**.
 * `app/src/main/res/drawable/first_frame.png`: **The static image** used as a fallback.
 * `app/src/main/AndroidManifest.xml`: Declares the `WallpaperService` and `MainActivity`, along with necessary permissions.
 * `app/build.gradle`: Manages project dependencies, including ExoPlayer (Media3) and Jetpack Compose.
