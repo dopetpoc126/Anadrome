@@ -5,40 +5,33 @@
 
 A dynamic Android Live Wallpaper featuring Optimus Prime, built using Kotlin and the latest ExoPlayer (Media3) library. This wallpaper intelligently manages video playback based on device state (visibility, screen lock, and battery saver mode) to provide a smooth, engaging experience while being mindful of system resources.
 
-## ✨ Features
+* **Immersive Video Playback:** Experience a high-quality, full-screen Optimus Prime video loop on your home and lock screens.
+* **Intelligent Resource Management:**
+    * **Visibility-Aware:** Automatically pauses video playback when your home screen is not visible (e.g., when an app is open), saving battery.
+    * **Screen Lock/Unlock:** Video intelligently pauses and resets to the beginning when your screen locks, resuming seamlessly when unlocked.
+    * **Battery Saver Mode Integration:** Automatically pauses playback when your device enters Battery Saver mode to conserve power.
+* **Seamless Preview Experience:** A dedicated button within the app allows you to preview the live wallpaper directly before applying it.
+* **Static First Frame Fallback:** Ensures a smooth transition and prevents black screens by displaying a static image (`first_frame.png`) until the video player is fully rendered.
+* **Muted by Design:** The video plays without audio, as typical for live wallpapers.
+* **Optimal Scaling:** Video content is automatically scaled and cropped to perfectly fit your device's screen.
 
-* **Optimized Video Playback:** Utilizes ExoPlayer (Media3) for efficient and high-performance video rendering.
-* **Intelligent State Management:**
-    * **Visibility-Aware:** Pauses video when the wallpaper is not visible (e.g., when an app is open).
-    * **Screen Lock/Unlock:** Automatically pauses the video and resets to the first frame on screen lock, resuming playback when the device is unlocked.
-    * **Battery Saver Mode:** Automatically pauses video playback when Battery Saver mode is active to conserve power, resuming when it's disabled.
-* **Static First Frame Fallback:** Displays a static image (`first_frame.png`) as a placeholder until the video player is ready to render, ensuring a seamless transition and preventing black screens.
-* **Muted Playback:** Video plays without audio, as typical for live wallpapers.
-* **Configurable Scaling:** Video content is scaled to fit the screen with cropping to fill the entire wallpaper surface.
+## 🚀 Get Started
 
-## 🛠️ Technologies Used
-
-* **Kotlin:** The primary programming language for Android development.
-* **Android SDK:** Core Android framework.
-* **ExoPlayer (Media3):** Google's open-source media player library for high-performance video playback.
-* **Gradle:** Build automation tool.
-
-## 🚀 Installation & Usage
-
-### For Users (Applying the Live Wallpaper):
+### For Users (Apply the Live Wallpaper):
 
 1.  **Download the APK:**
-    * Go to the [Releases](https://github.com/dopetpoc126/Optimus-Prime-Live-Wallpaper/releases) section of this GitHub repository.
-    * Download the latest `.apk` file.
+    * Head over to the [Releases](https://github.com/dopetpoc126/Optimus-Prime-Live-Wallpaper/releases) section of this repository.
+    * Download the latest `app-release.apk` file.
 2.  **Install the APK:**
     * Transfer the downloaded `.apk` file to your Android device.
-    * Enable "Install from Unknown Sources" in your device settings (if prompted) to install the app.
-3.  **Apply as Live Wallpaper:**
-    * **Option A (Recommended):** After installation, open your device's `Settings` app. Search for "Wallpaper" or "Live Wallpaper."
-    * **Option B:** Long-press on your home screen, select "Wallpapers & style" (or similar), then navigate to "Live Wallpapers."
-    * Select "Optimus Prime Live Wallpaper" from the list and apply it.
+    * You might need to enable "Install from Unknown Sources" in your device's security settings to install the app.
+3.  **Launch the App and Apply:**
+    * After installation, open the "Optimus Prime Live Wallpaper" app from your app drawer.
+    * Tap the **"Apply Primus Wallpaper"** button.
+    * Your device's live wallpaper picker will open. Select "Optimus Prime Live Wallpaper" (or "Primus") from the list and confirm.
+    * **Optional:** Use the **"Preview Wallpaper"** button in the app to see the video in action before applying!
 
-### For Developers (Building from Source):
+### For Developers (Build from Source):
 
 1.  **Clone the repository:**
     ```bash
@@ -46,42 +39,53 @@ A dynamic Android Live Wallpaper featuring Optimus Prime, built using Kotlin and
     ```
 2.  **Open in Android Studio:**
     * Launch Android Studio.
-    * Select `File > Open`, then navigate to the cloned repository folder and open it.
-3.  **Sync Gradle:**
+    * Go to `File > Open`, then navigate to the cloned `Optimus-Prime-Live-Wallpaper` directory and open it.
+3.  **Sync Gradle Project:**
     * Android Studio should automatically sync the Gradle project. If not, click `File > Sync Project with Gradle Files`.
-4.  **Run on Device/Emulator:**
+4.  **Add Your Video and First Frame:**
+    * Place your desired Optimus Prime video file named `my_wallpaper_video.mp4` into the `app/src/main/res/raw/` directory.
+    * Place a corresponding static image named `first_frame.png` (a screenshot of the first frame of your video works well) into the `app/src/main/res/drawable/` directory.
+5.  **Run on Device/Emulator:**
     * Connect an Android device or start an emulator.
-    * Click the `Run` button (green play icon) in Android Studio.
-    * After the app is installed, follow the "For Users" instructions above to apply the wallpaper.
+    * Click the `Run` button (green play icon) in Android Studio to build and install the app.
+    * Once installed, follow the "For Users" instructions above to apply the wallpaper.
 
 ## 📁 Project Structure
 
-* `app/src/main/java/com/example/livewallpaper/VideoWallpaperService.kt`: Contains the core logic for the live wallpaper service, including ExoPlayer initialization, state management, and drawing.
-* `app/src/main/res/raw/my_wallpaper_video.mp4`: The video file for Optimus Prime. **Make sure your desired video is named `my_wallpaper_video.mp4` and placed here.**
-* `app/src/main/res/drawable/first_frame.png`: The static image displayed as a fallback before video playback starts. **Ensure this image exists.**
-* `app/src/main/AndroidManifest.xml`: Declares the wallpaper service and necessary permissions.
-* `app/build.gradle`: Defines project dependencies (including ExoPlayer Media3).
+* `app/src/main/java/com/example/livewallpaper/VideoWallpaperService.kt`: The core Live Wallpaper service logic. Handles ExoPlayer setup for the wallpaper, drawing to the surface, and reacting to device state changes (screen lock, battery saver, visibility).
+* `app/src/main/java/com/example/livewallpaper/MainActivity.kt`: The primary activity. Provides the user interface to apply the wallpaper and includes a **new in-app video preview** using Jetpack Compose and ExoPlayer.
+* `app/src/main/res/raw/my_wallpaper_video.mp4`: **Your main video file.** Ensure this exact filename.
+* `app/src/main/res/drawable/first_frame.png`: **The static image** used as a fallback.
+* `app/src/main/AndroidManifest.xml`: Declares the `WallpaperService` and `MainActivity`, along with necessary permissions.
+* `app/build.gradle`: Manages project dependencies, including ExoPlayer (Media3) and Jetpack Compose.
 
-## 💡 How it Works
+## 💡 How It Works (Technical Details)
 
-The `VideoWallpaperService` extends Android's `WallpaperService` and manages the lifecycle of the live wallpaper. The `VideoWallpaperEngine` nested class handles:
+The project leverages two main components:
 
-* **Surface Management:** Interacts with the `SurfaceHolder` to draw video frames.
-* **ExoPlayer Lifecycle:** Initializes, prepares, and releases the `ExoPlayer` instance.
-* **Broadcast Receivers:** Listens for `ACTION_USER_PRESENT` (device unlock), `ACTION_SCREEN_OFF` (screen locked), and `ACTION_POWER_SAVE_MODE_CHANGED` to adjust video playback.
-* **Playback Logic:** The `updateVideoPlayback()` method is the heart of the control, deciding whether the video should play based on visibility, phone lock status, and battery saver mode.
-* **First Frame Handling:** The `onRenderedFirstFrame()` callback from ExoPlayer is used to detect when the video has started rendering, allowing the app to transition from the static `first_frame.png` to the live video.
+1.  **`VideoWallpaperService` (Live Wallpaper Core):**
+    * Extends `android.service.wallpaper.WallpaperService` to create a live wallpaper engine.
+    * Manages an `ExoPlayer` instance that renders directly to the wallpaper's `SurfaceHolder`.
+    * Utilizes `BroadcastReceiver`s to listen for `ACTION_USER_PRESENT`, `ACTION_SCREEN_OFF`, and `ACTION_POWER_SAVE_MODE_CHANGED` to control video playback efficiently.
+    * Implements `Player.Listener` callbacks to detect when the video first renders (`onRenderedFirstFrame`), allowing a smooth transition from the static `first_frame.png`.
+
+2.  **`MainActivity` (User Interface):**
+    * Built with **Jetpack Compose** for a modern Android UI.
+    * Provides a button to directly launch the live wallpaper picker with the correct component.
+    * Introduces a **`VideoPlayerComposable`** that embeds another `ExoPlayer` instance to play `my_wallpaper_video.mp4` directly within the app, offering a real-time preview of the wallpaper. This preview player is lifecycle-aware, pausing when the app is in the background and releasing resources when no longer needed.
+
+This architecture ensures both robust wallpaper functionality and a user-friendly application experience.
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you find a bug or have an idea for an improvement, please:
+Contributions are warmly welcomed! If you have suggestions, find bugs, or want to add new features, please feel free to:
 
 1.  Fork the repository.
-2.  Create a new branch (`git checkout -b feature/your-feature`).
-3.  Make your changes.
-4.  Commit your changes (`git commit -m 'Add new feature'`).
-5.  Push to the branch (`git push origin feature/your-feature`).
-6.  Open a Pull Request.
+2.  Create a new branch (`git checkout -b feature/my-awesome-feature`).
+3.  Make your changes and test them thoroughly.
+4.  Commit your changes (`git commit -m 'feat: Add a new awesome feature'`).
+5.  Push to the branch (`git push origin feature/my-awesome-feature`).
+6.  Open a Pull Request describing your changes.
 
 ## 📄 License
 
