@@ -1,11 +1,10 @@
-package com.example.livewallpaper.ui.components // IMPORTANT: Ensure this matches your package
+package com.example.anadrome.ui.components // IMPORTANT: Ensure this matches your package
 
 import android.net.Uri
 import androidx.compose.runtime.*
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.common.MediaItem
-import androidx.media3.common.Player
 // No direct equivalent for VideoSize import needed for this specific PlayerView usage
 // import androidx.media3.common.VideoSize // This is not strictly needed for the PlayerView setup directly
 

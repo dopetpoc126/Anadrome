@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Primus</string>
-    <string name="wallpaper_description">A cool live wallpaper that has one of the coolest Optimus Prime transformations.</string>
-    <string name="wallpaper_name">Primus Live Wallpaper</string>
+    <string name="wallpaper_description">Custom wallpaper from user</string>
+    <string name="wallpaper_name">User selected</string>
+    <string name="app_name">Anadrome</string>
+    <string name="app_description">Set your favorite videos as live wallpaper!</string> <!-- Added this line -->
 </resources>

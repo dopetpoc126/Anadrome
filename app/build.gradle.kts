@@ -2,15 +2,16 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.example.livewallpaper"
-    compileSdk = 35 // Keeping 35 as specified
+    namespace = "com.example.anadrome"
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.livewallpaper"
-        minSdk = 21
+        applicationId = "com.example.anadrome"
+        minSdk = 24
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -30,76 +31,94 @@ android {
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
+
     buildFeatures {
         compose = true
+        viewBinding = true
     }
+
     composeOptions {
-        // Ensure this matches the kotlinCompilerExtensionVersion compatible with your compose-bom
-        // For '2024.05.00' BOM, you might need a newer Kotlin CE version.
-        // As of May 2024, Compose BOM 2024.05.00 generally requires Kotlin CE 1.5.11 or 1.6.x for latest features.
-        // However, if 1.5.1 works without errors, keep it. If you get compilation issues, try updating.
-        kotlinCompilerExtensionVersion = "1.5.1" // Or higher if needed for your Compose BOM
+        kotlinCompilerExtensionVersion = "1.5.13" // latest stable as of mid-2025
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    configurations.all {
+        resolutionStrategy {
+            force("androidx.databinding:databinding-common:8.3.0")
+            force("androidx.databinding:databinding-runtime:8.3.0")
+            force("androidx.databinding:databinding-compiler:8.3.0")
+            force("androidx.databinding:baseLibrary:8.3.0")
+        }
+    }
 }
 
 dependencies {
-    // AndroidX libraries
+    configurations.all {
+        resolutionStrategy {
+            force("androidx.media3:media3-common:1.3.1")
+            force("androidx.media3:media3-transformer:1.3.1")
+            force("androidx.media3:media3-exoplayer:1.3.1")
+            force("androidx.media3:media3-ui:1.3.1")
+            force("androidx.media3:media3-effect:1.3.1")
+        }
+    }
+
     implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.appcompat:appcompat:1.6.1") // Keep if mixing Views
-    implementation("com.google.android.material:material:1.12.0") // Keep if mixing Views
-    // You likely don't need constraintlayout if you are purely Compose UI
-    // implementation("androidx.constraintlayout:constraintlayout:2.1.4") // Remove if not mixing Views
-    implementation("androidx.media3:media3-exoplayer:1.3.1") // Or the latest stable version
-    implementation("androidx.media3:media3-ui:1.3.1") // For PlayerView in Compose
-    // **IMPORTANT: Use the Compose BOM for consistent versions of Compose libraries**
-    // This should be the first Compose dependency you list.
-    // Check https://developer.android.com/jetpack/compose/bom for the latest stable version.
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.12.0")
+
+    // Media3 - latest versions
+    val media3Version = "1.3.1"
+    implementation("androidx.media3:media3-ui:$media3Version")
+    implementation("androidx.media3:media3-exoplayer:$media3Version")
+    implementation("androidx.media3:media3-transformer:$media3Version")
+    implementation("androidx.media3:media3-effect:$media3Version")
+    implementation("androidx.media3:media3-common:1.3.1")
+    implementation("com.google.android.material:material:1.12.0")
+
+    // Jetpack Compose
     implementation(platform("androidx.compose:compose-bom:2024.05.00"))
+    implementation("androidx.activity:activity-compose")
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-graphics")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation("androidx.compose.material3:material3")
 
-    // Jetpack Compose dependencies (versions are managed by the BOM)
-    implementation("androidx.activity:activity-compose") // For Compose-enabled Activity
-    implementation("androidx.compose.ui:ui") // Core UI components
-    implementation("androidx.compose.ui:ui-graphics") // Graphics utilities for Compose
-    implementation("androidx.compose.ui:ui-tooling-preview") // For @Preview annotation
-    implementation("androidx.compose.material3:material3") // Material Design 3 components
+    // Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.7")
 
-    // **FIX FOR NAVIGATION DUPLICATE CLASS ERROR:**
-    // Use ONLY this one for Compose Navigation. It pulls in what's needed.
-    //implementation("androidx.navigation:navigation-compose") // Version managed by BOM if using BOM
-    // If you are NOT using the BOM, you would specify the version directly here:
-    implementation("androidx.navigation:navigation-compose:2.7.7") // Example version
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 
-    // **Streamlined ExoPlayer dependencies:**
-    // The media3-exoplayer and media3-ui artifacts are the recommended way to use ExoPlayer with Media3.
-    // They bring in the necessary core components. Avoid mixing with older `com.google.android.exoplayer` artifacts
-    // unless you have a specific reason (e.g., specific features not yet in Media3).
-    implementation("androidx.media3:media3-exoplayer:1.3.1") // Or latest stable Media3 version
-    implementation("androidx.media3:media3-ui:1.3.1")
-    implementation(libs.espresso.core)       // Or latest stable Media3 version
+    // Lifecycle
+    val lifecycleVersion = "2.8.1"
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion")
+    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycleVersion")
 
-    // Remove these older ExoPlayer lines as they are likely redundant or conflict with media3
-    // implementation("com.google.android.exoplayer:exoplayer-core:2.19.1")
-    // implementation("com.google.android.exoplayer:exoplayer-ui:2.19.1")
-    // implementation("com.google.android.exoplayer:exoplayer:2.18.0")
+    // FFmpeg
+    implementation("com.github.tanersener:ffmpeg-kit:4.5")
 
-    // Test dependencies
+    // Testing
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1") // Keep if needed for traditional UI tests
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    // Debugging tools for Compose previews
-    debugImplementation("androidx.compose.ui:ui-tooling") // Tooling for previews
-    debugImplementation("androidx.compose.ui:ui-test-manifest") // Required for Compose UI tests
+    // Debug tools
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 }

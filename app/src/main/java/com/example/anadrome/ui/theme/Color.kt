@@ -1,4 +1,4 @@
-package com.example.livewallpaper.ui.theme // Ensure this matches your package
+package com.example.anadrome.ui.theme // Ensure this matches your package
 
 import androidx.compose.ui.graphics.Color
 

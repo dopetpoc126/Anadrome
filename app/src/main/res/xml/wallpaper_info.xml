@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- IMPORTANT: Ensure this XML declaration is on the very first line and column.
+     There should be no characters (not even spaces or newlines) before it. -->
+<wallpaper
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:thumbnail="@mipmap/ic_launcher_round"
+    android:description="@string/app_description"
+    android:settingsActivity=".MainActivity" />

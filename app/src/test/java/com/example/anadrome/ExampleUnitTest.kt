@@ -1,4 +1,4 @@
-package com.example.livewallpaper
+package com.example.anadrome
 
 import org.junit.Test
 
