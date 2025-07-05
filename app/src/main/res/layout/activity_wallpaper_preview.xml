@@ -9,14 +9,9 @@
 
     <androidx.media3.ui.PlayerView
         android:id="@+id/player_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:use_controller="false"
-
-        app:resize_mode="fit" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:resize_mode="fit"
+        app:use_controller="false" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

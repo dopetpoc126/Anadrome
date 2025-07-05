@@ -132,11 +132,18 @@ class VideoWallpaperService : WallpaperService() {
 
                 exoPlayer?.repeatMode = if (animateContinuously) Player.REPEAT_MODE_ALL else Player.REPEAT_MODE_OFF
 
+                // Behavior changed to reset to the last frame instead of the first.
+                exoPlayer?.let { player ->
+                    val duration = player.duration
+                    if (duration != C.TIME_UNSET) {
+                        player.seekTo(duration)
+                    }
+                }
+
                 // Play animation once on return if the setting is enabled
                 if (animateOnReturn && shouldPlay()) {
                     exoPlayer?.let { player ->
                         Log.d(TAG, "Animate on return: Playing video.")
-                        player.seekTo(0)
                         player.play()
                     }
                 }

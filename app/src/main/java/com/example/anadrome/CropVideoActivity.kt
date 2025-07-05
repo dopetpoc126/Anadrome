@@ -159,7 +159,7 @@ class CropVideoActivity : AppCompatActivity() {
         exoPlayer = ExoPlayer.Builder(this).build().apply {
             setMediaItem(MediaItem.fromUri(videoUri!!))
             repeatMode = Player.REPEAT_MODE_ALL
-            videoScalingMode = C.VIDEO_SCALING_MODE_SCALE_TO_FIT
+            videoScalingMode = C.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING
             volume = 0f
             addListener(playerListener)
             prepare()
