@@ -44,7 +44,7 @@ You can install the app by downloading the latest APK directly from the project'
 
 ## ⚙️ Advanced Animation Controls
 
-> Control exactly how your wallpaper behaves with these powerful settings.
+> Control exactly how your wallpaper behaves with these settings.
 
 | Setting | Functionality |
 | :--- | :--- |
