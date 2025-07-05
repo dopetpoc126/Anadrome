@@ -1,7 +1,7 @@
 # Anadrome Live Wallpaper
 
 <p align="center">
-  <img src="https://i.ibb.co/ZR2YgHDr/app-logo.png" alt="Anadrome App Icon" width="150"/>
+  <img src="https://i.ibb.co/whT27pjc/image.png" alt="Anadrome App Icon" width="150"/>
 </p>
 
 <p align="center">
