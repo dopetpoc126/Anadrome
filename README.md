@@ -36,9 +36,7 @@ You can install the app by downloading the latest APK directly from the project'
 | **Custom Videos** | Select any video from your device to set as a live wallpaper. |
 | **Interactive Cropping** | Easily crop your video to the perfect 9:16 portrait aspect ratio. |
 | **Dynamic Theming** | Utilizes Material You to adapt the app's colors to your system wallpaper. |
-| **Performance Optimized** | Automatically downscales large videos to save battery and system resources. |
 | **Wallpaper Preview** | Quickly view the currently active wallpaper video directly from the app. |
-| **Haptic Feedback** | Feel responsive vibrations when interacting with UI elements. |
 
 <br>
 
