@@ -31,7 +31,7 @@ This project is based on and inspired by the foundational work of the [Optimus-P
   </tr>
 </table>
 
-> **To add your screenshots:** Upload your screenshot images to your GitHub repository (a good practice is to create an `.github/assets` folder) and replace the placeholder `URL_TO_YOUR...` links with the direct links to your images.
+
 
 ---
 
