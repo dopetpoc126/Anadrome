@@ -16,6 +16,19 @@ This project is based on and inspired by the foundational work of the [Optimus-P
 
 ---
 
+## 🚀 Installation
+
+You can install the app by downloading the latest APK directly from the project's releases.
+
+1.  **Go to the [Releases Page](https://github.com/dopetpoc126/Anadrome-Live-Wallpaper/releases)**.
+2.  Under the latest release (e.g., `v1.0`), download the `Anadrome.apk` file.
+3.  Open the downloaded file on your Android device to install it.
+
+> **Note**
+> You may need to enable "Install from unknown apps" in your Android settings to install the APK file.
+
+---
+
 ## 📋 Core Features
 
 | Feature | Description |
@@ -51,20 +64,6 @@ This project is based on and inspired by the foundational work of the [Optimus-P
 | **Android SDK** | The core development platform. |
 
 <br>
-
-## 🚀 Getting Started
-
-To get a local copy up and running, follow these steps:
-
-1.  **Clone the repo:**
-    ```sh
-    git clone [https://github.com/your_username/your_repository_name.git](https://github.com/your_username/your_repository_name.git)
-    ```
-2.  **Open in Android Studio:**
-    * Open the project in the latest stable version of Android Studio.
-    * Let Gradle sync and build the project.
-
----
 
 ## 📄 License
 
