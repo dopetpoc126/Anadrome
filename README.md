@@ -16,6 +16,25 @@ This project is based on and inspired by the foundational work of the [Optimus-P
 
 ---
 
+## 📸 Screenshots
+
+<table>
+  <tr>
+    <td align="center"><b>Home Screen</b></td>
+    <td align="center"><b>Settings</b></td>
+     <td align="center"><b>Crop Screen</b></td>
+  </tr>
+  <tr>
+    <td><img src="URL_TO_YOUR_HOME_SCREENSHOT.png" alt="Home Screen" width="250"/></td>
+    <td><img src="URL_TO_YOUR_SETTINGS_SCREENSHOT.png" alt="Settings Screen" width="250"/></td>
+    <td><img src="URL_TO_YOUR_CROP_SCREENSHOT.png" alt="Crop Screen" width="250"/></td>
+  </tr>
+</table>
+
+> **To add your screenshots:** Upload your screenshot images to your GitHub repository (a good practice is to create an `.github/assets` folder) and replace the placeholder `URL_TO_YOUR...` links with the direct links to your images.
+
+---
+
 ## 🚀 Installation
 
 You can install the app by downloading the latest APK directly from the project's releases.
