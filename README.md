@@ -27,7 +27,7 @@ This project is based on and inspired by the foundational work of the [Optimus-P
   <tr>
     <td><img src="URL_TO_YOUR_HOME_SCREENSHOT.png" alt="Home Screen" width="250"/></td>
     <td><img src="URL_TO_YOUR_SETTINGS_SCREENSHOT.png" alt="Settings Screen" width="250"/></td>
-    <td><img src="URL_TO_YOUR_CROP_SCREENSHOT.png" alt="Crop Screen" width="250"/></td>
+    <td><img src="https://github.com/dopetpoc126/Anadrome/blob/main/.github/assets/cropscreen.jpg" alt="Crop Screen" width="250"/></td>
   </tr>
 </table>
 
